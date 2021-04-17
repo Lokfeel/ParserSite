@@ -18,13 +18,12 @@ public class Main {
                     String temp = elem.attr("data-src");
                     URL url = new URL(temp);
                     InputStream in = new BufferedInputStream(url.openStream(), 200);
-                    OutputStream out = new BufferedOutputStream(new FileOutputStream(pathDownload + numName + ".jpg"));
+                    OutputStream out = new BufferedOutputStream(new FileOutputStream(pathDownload + numName++ + ".jpg"));
                     for(int i; (i = in.read()) != -1;){
                         out.write(i);
                     }
                     in.close();
                     out.close();
-                    numName++;
                 }
                 catch (MalformedURLException ex){
                     ex.getMessage();
